@@ -2,4 +2,4 @@
 
 ## Here's a quick preview of the system
 
-![Sreenshot](/screenshot.gif)
+![Screenshot](/screenshot.gif)
