@@ -14,6 +14,12 @@
 </head>
 
 <body>
+    <?php
+    include "config.php";
+
+    $rawData = mysqli_query($conn, "SELECT * FROM contacts");
+    ?>
+
     <div class="container">
         <nav>
             <h1>Contact Management System</h1>
@@ -22,7 +28,7 @@
         <main>
             <div class="title-add">
                 <h2>Contact List</h2>
-                <button class="btn-add"><ion-icon name="add"></ion-icon>New Contact</button>
+                <a href="newcontact.php"><button class="btn-add"><ion-icon name="add"></ion-icon>New Contact</button></a>
             </div>
             <div class="contacts">
                 <table>
@@ -33,20 +39,30 @@
                         <th class="btn-row">Edit</th>
                         <th class="btn-row">Delete</th>
                     </tr>
-                    <tr>
-                        <td class="id-row">1.</td>
-                        <td>Carmicheal John</td>
-                        <td>0712345678</td>
-                        <td><button class="btn-edit"><ion-icon name="create"></ion-icon>Edit</button></td>
-                        <td><button class="btn-delete"><ion-icon name="trash"></ion-icon>Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td class="id-row">2.</td>
-                        <td>Carmicheal John</td>
-                        <td>0712345678</td>
-                        <td><button class="btn-edit"><ion-icon name="create"></ion-icon>Edit</button></td>
-                        <td><button class="btn-delete"><ion-icon name="trash"></ion-icon>Delete</button></td>
-                    </tr>
+
+                    <?php
+                    $count = 0;
+                    while ($row = mysqli_fetch_array($rawData)) {
+                        $count += 1;
+                    ?>
+                        <tr>
+                            <td class='id-row'><?php echo $count; ?>.</td>
+                            <td><?php echo $row['fullname']; ?></td>
+                            <td><?php echo $row['phone']; ?></td>
+                            <td><a href="update.php?id=<?php echo $row['id']; ?>"><button class='btn-edit'><ion-icon name='create'></ion-icon>Edit</button></a></td>
+                            <td><a href="delete.php?id=<?php echo $row['id']; ?>"><button class='btn-delete'><ion-icon name='trash'></ion-icon>Delete</button></a></td>
+                        </tr>
+
+                    <?php
+                    }
+                    if ($count == 0) {
+                        echo "
+                        <tr class='no-contacts'>
+                            <td colspan='5'><p>No contacts available</p></td>
+                        </tr>
+                        ";
+                    }
+                    ?>
                 </table>
             </div>
         </main>

@@ -9,6 +9,48 @@ html {
 		'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
 		'Helvetica Neue', sans-serif;
 }
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 15px;
+	font-weight: 600;
+	width: 100%;
+	padding: 8px 5px;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	cursor: pointer;
+	transition: all 0.1s linear;
+	background: #008080;
+}
+button:hover {
+	background: #047171;
+}
+button:active {
+	background: #055a5a;
+}
+
+input {
+	font-size: 15px;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1.5px solid rgba(0, 128, 128, 0.4);
+}
+input:focus {
+	outline: none;
+}
+.error {
+	color: rgb(255, 77, 46);
+	text-align: center;
+	padding: 3px 0;
+	font-weight: 600;
+}
 
 .container {
 	height: 100vh;
@@ -45,8 +87,10 @@ main table td,
 main table th {
 	border: 2px solid rgba(0, 128, 128, 0.1);
 }
+
 main table th {
 	background: rgba(0, 128, 128, 0.1);
+	color: rgb(69, 69, 69);
 }
 main table td,
 main table th {
@@ -64,16 +108,6 @@ main table th {
 .btn-edit,
 .btn-delete {
 	width: 80px;
-	padding: 8px 3px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 15px;
-	border: none;
-	border-radius: 5px;
-	color: #fff;
-	cursor: pointer;
-	transition: all 0.1s linear;
 }
 .btn-add ion-icon,
 .btn-edit ion-icon,
@@ -92,19 +126,18 @@ main table th {
 	width: 140px;
 	background: #5cb85c;
 }
-
 .btn-edit:hover {
-	background: #007af2;
+	background: #137ae0;
 }
+
 .btn-delete:hover {
 	background: #ff3916;
 }
 .btn-add:hover {
 	background: #4bad4b;
 }
-
 .btn-edit:active {
-	background: #0065c7;
+	background: #1378dc;
 }
 .btn-delete:active {
 	background: #e42200;
@@ -112,4 +145,37 @@ main table th {
 
 .btn-add:active {
 	background: #3a863a;
+}
+
+.no-contacts p {
+	text-align: center;
+	padding: 15px 0;
+	font-weight: 600;
+	letter-spacing: 0.4px;
+	color: rgba(0, 128, 128, 0.4);
+}
+
+/*
+	newcontact.php
+*/
+
+.create-form {
+	width: 350px;
+	margin: 0 auto;
+}
+.create-form div {
+	display: flex;
+	flex-direction: column;
+	margin: 15px 0;
+}
+
+.create-form button {
+	margin: 20px 0 0;
+}
+
+.create-form div label {
+	font-size: 14px;
+	font-weight: 600;
+	color: teal;
+	margin-bottom: 5px;
 }
