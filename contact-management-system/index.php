@@ -36,6 +36,8 @@
                         <th class="id-row">No.</th>
                         <th>Fullname</th>
                         <th>Phone Number</th>
+                        <th>Email</th>
+                        <th>Address</th>
                         <th class="btn-row">Edit</th>
                         <th class="btn-row">Delete</th>
                     </tr>
@@ -47,8 +49,10 @@
                     ?>
                         <tr>
                             <td class='id-row'><?php echo $count; ?>.</td>
-                            <td><?php echo $row['fullname']; ?></td>
+                            <td><?php echo $row['firstname'] . " " . $row['lastname']; ?></td>
                             <td><?php echo $row['phone']; ?></td>
+                            <td><?php echo $row['email']; ?></td>
+                            <td><?php echo $row['address']; ?></td>
                             <td><a href="update.php?id=<?php echo $row['id']; ?>"><button class='btn-edit'><ion-icon name='create'></ion-icon>Edit</button></a></td>
                             <td><a href="delete.php?id=<?php echo $row['id']; ?>"><button class='btn-delete'><ion-icon name='trash'></ion-icon>Delete</button></a></td>
                         </tr>
@@ -58,7 +62,7 @@
                     if ($count == 0) {
                         echo "
                         <tr class='no-contacts'>
-                            <td colspan='5'><p>No contacts available</p></td>
+                            <td colspan='7'><p>No contacts available</p></td>
                         </tr>
                         ";
                     }

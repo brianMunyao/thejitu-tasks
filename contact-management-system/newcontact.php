@@ -15,15 +15,24 @@
     $error = '';
 
     if (isset($_POST['submit'])) {
-        $fullname = $_POST['fullname'];
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
         $phone = $_POST['phone'];
+        $email = $_POST['email'];
+        $address = $_POST['address'];
 
-        if ($fullname == '') {
-            $error = "Fullname missing";
+        if ($firstname == '') {
+            $error = "Firstname missing";
+        } else if ($lastname == '') {
+            $error = "Lastname missing";
         } else if ($phone == '') {
-            $error = "Phone number missing";
+            $error = "Phone Number missing";
+        } else if ($email == '') {
+            $error = "Email Address missing";
+        } else if ($address == '') {
+            $error = "Address missing";
         } else {
-            mysqli_query($conn, "INSERT INTO contacts (fullname, phone) VALUES('$fullname', '$phone')");
+            mysqli_query($conn, "INSERT INTO contacts (firstname, lastname, phone, email, address) VALUES('$firstname','$lastname','$phone','$email',  '$address')");
             header("location:index.php");
         }
     }
@@ -39,13 +48,26 @@
                 <p class="error"><?php echo $error; ?></p>
                 <form action="" method="post">
                     <div>
-                        <label for="fullname">Fullname</label>
-                        <input type="text" id="fullname" name="fullname" placeholder="Enter their name">
+                        <label for="firstname">First Name *</label>
+                        <input type="text" id="firstname" name="firstname" placeholder="Enter the first name">
 
                     </div>
                     <div>
-                        <label for="phone">Phone</label>
-                        <input type="text" id="phone" name="phone" placeholder="Enter their phone number">
+                        <label for="lastname">Last Name</label>
+                        <input type="text" id="lastname" name="lastname" placeholder="Enter the last name">
+
+                    </div>
+                    <div>
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter the Email Address">
+                    </div>
+                    <div>
+                        <label for="phone">Phone *</label>
+                        <input type="text" id="phone" name="phone" placeholder="Enter the Phone number">
+                    </div>
+                    <div>
+                        <label for="address">Address</label>
+                        <input type="text" id="address" name="address" placeholder="Enter Address">
                     </div>
 
                     <button name="submit" type="submit">CREATE</button>
