@@ -50,12 +50,10 @@
                     <div>
                         <label for="firstname">First Name *</label>
                         <input type="text" id="firstname" name="firstname" placeholder="Enter the first name">
-
                     </div>
                     <div>
                         <label for="lastname">Last Name</label>
                         <input type="text" id="lastname" name="lastname" placeholder="Enter the last name">
-
                     </div>
                     <div>
                         <label for="email">Email Address</label>
