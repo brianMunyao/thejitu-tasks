@@ -19,28 +19,21 @@
         $lastname = $_POST['lastname'];
         $phone = $_POST['phone'];
         $email = $_POST['email'];
-        $address = $_POST['address'];
 
-        if ($firstname == '') {
-            $error = "Firstname missing";
-        } else if ($lastname == '') {
-            $error = "Lastname missing";
-        } else if ($phone == '') {
-            $error = "Phone Number missing";
-        } else if ($email == '') {
-            $error = "Email Address missing";
-        } else if ($address == '') {
-            $error = "Address missing";
-        } else {
-            mysqli_query($conn, "INSERT INTO contacts (firstname, lastname, phone, email, address) VALUES('$firstname','$lastname','$phone','$email',  '$address')");
-            header("location:index.php");
-        }
+        mysqli_query($conn, "INSERT INTO contacts (firstname, lastname, phone, email) VALUES('$firstname','$lastname','$phone','$email')");
+        header("location:index.php");
     }
     ?>
 
     <div class="container">
         <nav>
-            <h1>Add New Contact</h1>
+            <div>
+                <a href="/jitu-tasks/contact-management-system/">
+                    <img src="./contact-logo.png" alt="logo">
+                </a>
+                <h1>Add New Contact</h1>
+            </div>
+            <span></span>
         </nav>
 
         <main>
@@ -49,23 +42,19 @@
                 <form action="" method="post">
                     <div>
                         <label for="firstname">First Name *</label>
-                        <input type="text" id="firstname" name="firstname" placeholder="Enter the first name">
+                        <input type="text" id="firstname" name="firstname" placeholder="Enter the first name" required>
                     </div>
                     <div>
                         <label for="lastname">Last Name</label>
-                        <input type="text" id="lastname" name="lastname" placeholder="Enter the last name">
+                        <input type="text" id="lastname" name="lastname" placeholder="Enter the last name" required>
                     </div>
                     <div>
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="Enter the Email Address">
+                        <input type="email" id="email" name="email" placeholder="Enter the Email Address" required>
                     </div>
                     <div>
                         <label for="phone">Phone *</label>
-                        <input type="text" id="phone" name="phone" placeholder="Enter the Phone number">
-                    </div>
-                    <div>
-                        <label for="address">Address</label>
-                        <input type="text" id="address" name="address" placeholder="Enter Address">
+                        <input type="text" id="phone" name="phone" placeholder="Enter the Phone number" required>
                     </div>
 
                     <button name="submit" type="submit">CREATE</button>

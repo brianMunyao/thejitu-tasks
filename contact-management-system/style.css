@@ -83,11 +83,19 @@ input:focus {
 nav {
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	padding: 30px 20px;
+	justify-content: space-between;
+	padding: 30px;
 	background: teal;
 	color: #fff;
 	letter-spacing: 0.5px;
+}
+nav div {
+	display: flex;
+	align-items: center;
+}
+nav img {
+	height: 30px;
+	margin-right: 20px;
 }
 
 main {
